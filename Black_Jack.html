@@ -1,0 +1,86 @@
+<meta charset="utf-8">
+<script>
+	function GetRandomInt(min, max)
+	{
+		return Math.floor(Math.random() * (max - min + 1)) + min;
+	}
+
+	function GetCard()
+	{
+		var cards = ['6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'];
+		return cards[GetRandomInt(0, cards.length - 1)];
+	}
+
+	function GetSumm(arr)
+	{
+		var summ = 0;
+		
+		for(var i = 0; i<arr.length; i++)
+		{
+			if (arr[i] == 'J' || arr[i] == 'Q' || arr[i] == 'K')
+				arr[i] = '10';
+
+			if (arr[i] == 'A')
+				if(summ <=10)
+					arr[i] = '11';
+				else
+					arr[i] ='1';
+			summ += parseInt(arr[i]);
+			
+		}
+		return summ;
+	}
+
+	function GetStatus()
+	{
+		return("Карты дилера: "+ dealer.join(' ') +" Карты игрока: "+ player.join(' ') +
+			" Текущая сумма и дилера: "+ GetSumm(dealer)+" Текущая сумма у игрока: " + GetSumm(player));
+	}
+
+	var dealer = [GetCard()];
+	var player = [GetCard(), GetCard()];
+
+	var Answer ='';
+
+	if(GetSumm(player) == 21)
+		alert("Повезло! вам сразу выпал BlackJack! " + GetStatus())
+	else
+	{
+		do
+	{
+		if(GetSumm(player) < 21)
+		{
+		Answer = prompt(GetStatus() + " Хотите ещё одну карту? 1 - да, иначе нет  ");
+		if(Answer == 1)
+			player.push(GetCard());
+		}
+		else if(GetSumm(player) > 21)
+		{
+			alert(GetStatus() + " К сожалению у вас перебор");
+			break;
+		}
+		else if(GetSumm(player) == 21)
+		{
+			alert(GetStatus() + " Поздравляем, вы набрали 21 очко (BlackJack)");
+			break;
+		}else 
+			break;
+		
+	}while(Answer =='1');
+	}
+
+	while(GetSumm(dealer) < 17)
+			dealer.push(GetCard());
+
+	if(GetSumm(dealer) == 21)
+			alert("У Дилера Black Jack, Дилеру повезло " + GetStatus() );
+	else if(GetSumm(dealer) > 21)
+			alert("У дилера перебор, победил игрок " + GetStatus());
+	else if(GetSumm(dealer) == GetSumm(player))
+			alert("Боевая ничья " + GetStatus());
+	else if(GetSumm(dealer) > GetSumm(player))
+			alert("Победил дилер " + GetStatus());
+	else
+		alert("Победил игрок " + GetStatus());
+		
+</script>
