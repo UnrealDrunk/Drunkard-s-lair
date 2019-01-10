@@ -1,4 +1,4 @@
-// Эта необычная программа помогает вспомнить количество выпитого
+// This unusual program helps to remember the amount of drunk
 
 #define _CRT_SECURE_NO_WARNINGS
 
