@@ -29,7 +29,7 @@ int main()
 	if (D < 0)
 		printf("the equation has no sqare roots");
 	else if (D == 0)
-		printf("the equation has just one square root x =  %.2f", ((-b+sqrt(D))/(2*a)));
+		printf("the equation has just one square root x =  %.2f", (float)(-b/(2*a)));
 	else
 		printf("the equation has two square roots x1 = %.2f and x2 = %.2f", ((-b + sqrt(D)) / (2 * a)), ((-b - sqrt(D)) / (2 * a)));
 
