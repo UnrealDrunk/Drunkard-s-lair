@@ -18,6 +18,7 @@ namespace FilmAdvisor
 
             if(Genre == "боевик")
             {
+                Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("Мы оподобрали для вас следующую подборочку нескучного кино:");
                 Console.WriteLine("1. Неудержимые");
                 Console.WriteLine("2. Рэмбо");
@@ -25,6 +26,7 @@ namespace FilmAdvisor
             }
             else if(Genre == "комедия")
             {
+                Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine("Мы оподобрали для вас следующую подборочку нескучного кино:");
                 Console.WriteLine("1. Маска");
                 Console.WriteLine("2. Не грози Южному Централу");
@@ -32,6 +34,7 @@ namespace FilmAdvisor
             }
             else if(Genre == "эротика")
             {
+                
                 Console.WriteLine("Сколько вам лет?");
                 string YearString = Console.ReadLine();
                 int Years = Int32.Parse(YearString);
@@ -50,6 +53,7 @@ namespace FilmAdvisor
                 }
                 else
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("Вот что Вас точно не оставит равнодушным:");
                     Console.WriteLine("1. Саша Грей и её друзья");
                     Console.WriteLine("2. Саша Грей и жёлтая Лада Калина");
@@ -58,6 +62,7 @@ namespace FilmAdvisor
             }
             else
             {
+                Console.ForegroundColor = ConsoleColor.DarkCyan;
                 Console.WriteLine("К сожалению мы ничего не сможем вам предложить, у нас только боевики, комедии и эротика");
             }
             Console.ReadLine();
